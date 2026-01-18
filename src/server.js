@@ -16,13 +16,11 @@ app.use(cors());
 
 app.use(productsRouter);
 
-
-
 app.use(notFoundHandler);
 app.use(errorHandler);
 
-
 await connectMongoDB();
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
