@@ -6,11 +6,13 @@ import {
   logout,
   refreshUser,
   requestResetEmail,
+  resetPassword
 } from '../controllers/authController.js';
 import {
   registerUserSchema,
   loginUserSchema,
   requestResetEmailSchema,
+  resetPasswordSchema
 } from '../validations/authValidations.js';
 
 const authRoutes = Router();
@@ -24,4 +26,5 @@ authRoutes.post(
   celebrate(requestResetEmailSchema),
   requestResetEmail,
 );
+authRoutes.post('/auth/reset-password', celebrate(resetPasswordSchema), resetPassword);
 export default authRoutes;
